@@ -1,5 +1,6 @@
 export { client as btcClient } from "./src/clients/btcClient";
 export { client as lnClient } from "./src/clients/lncClient";
+export { client as lqdClient } from "./src/clients/lqdClient";
 export { client as otsClient } from "./src/clients/otsClient";
 export { client as wasabiClient } from "./src/clients/wasabiClient";
 export {
