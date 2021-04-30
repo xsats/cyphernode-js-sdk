@@ -57,6 +57,22 @@ exports.client = function (_a) {
                 });
             });
         },
+	getWalletInfo: function () {
+            return get("elements_getwalletinfo");
+        },
+        getTxn: function (txid) {
+            return __awaiter(this, void 0, void 0, function () {
+                var txdetails;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, get("elements_gettransaction", txid)];
+                        case 1:
+                            txdetails = (_a.sent()).txdetails;
+                            return [2 /*return*/, txdetails];
+                    }
+                });
+            });
+        },
     };
     return api;
 };
