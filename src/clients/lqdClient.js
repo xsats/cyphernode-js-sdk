@@ -57,22 +57,36 @@ exports.client = function (_a) {
                 });
             });
         },
-	getWalletInfo: function () {
+        getWalletInfo: function () {
             return get("elements_getwalletinfo");
         },
-        getTxn: function (txid) {
+        getBestBlockHash: function () {
             return __awaiter(this, void 0, void 0, function () {
-                var txdetails;
+                var hash;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, get("elements_gettransaction", txid)];
+                        case 0: return [4 /*yield*/, get("elements_getbestblockhash")];
                         case 1:
-                            txdetails = (_a.sent()).txdetails;
-                            return [2 /*return*/, txdetails];
+                            hash = (_a.sent()).result;
+                            return [2 /*return*/, hash];
                     }
                 });
             });
         },
+	getTxn: function (txid) {
+            return __awaiter(this, void 0, void 0, function () {
+                var tx;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, get("elements_gettransaction", txid)];
+                        case 1:
+                            tx = (_a.sent()).result;
+                            return [2 /*return*/, tx];
+                    }
+                });
+            });
+        },
+
     };
     return api;
 };

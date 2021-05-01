@@ -66,7 +66,7 @@ export interface IssuanceDetails {
   contract_hash: string;
 }
 
-export interface TxnInfo {
+export interface GetTxnResult {
   txid: TxnId;
   hash: BlockHash;
   version: number;
@@ -85,9 +85,20 @@ export interface TxnInfo {
   issuance: IssuanceDetails | null;
 }
 
+export interface GetTxnError {
+  code: number;
+  message: string;
+}
+
+export interface GetTxnResponse {
+  result: GetTxnResult | null;
+  error: GetTxnError | null;
+}
+
 export interface CypherNodeLqdClient {
   getNewAddress(): Promise<String>;
   getWalletInfo(): Promise<LqdWalletInfo>;
-  getTxn(txid: Hash): Promise<TxnInfo>;
+  getTxn(txid: Hash): Promise<GetTxnResponse>;
+  getBestBlockHash(): Promise<Hash>;
 }
 
